@@ -129,23 +129,23 @@ function toggleSubMenu(menuId) {
     <nav>
         <ul>
             <h2 class="mypageH2">마이페이지</h2>
-            <li onclick="toggleSubMenu('myClassroomSubmenu')"><label class="txt">내 강의실&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;⌵</label></li>
+            <li onclick="toggleSubMenu('myClassroomSubmenu')"><label class="txt">내 강의실</label></li>
             <ul class="submenu" id="myClassroomSubmenu">
                 <li onclick="location.href='../view_Hjh/suganglistStd?user_seq=${user_seq}'"><label class="txtSub">수강신청내역</li>
                 <li onclick="location.href='../Jhe/myLecture'"><label class="txtSub">수강중인 강의 목록</label></li>
             </ul>
-            <li onclick="toggleSubMenu('userInfoSubmenu')"><label class="txt">회원정보&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;⌵</label></li>
+            <li onclick="toggleSubMenu('userInfoSubmenu')"><label class="txt">회원정보</label></li>
             <ul class="submenu" id="userInfoSubmenu">
            		 <li onclick="location.href='../view_Hjh/updateProfile?user=${user}'"><label class="txtSub">개인정보 수정</li>
            		 <li onclick="location.href='../view_Hjh/changePW?user=${user}'"><label class="txtSub">비밀번호 변경</li>
            		 <li onclick="location.href='../view_Hjh/deleteStd?user=${user}'"><label class="txtSub">회원탈퇴</li>
             </ul>
-            <li onclick="toggleSubMenu('inquirySubmenu')"><label class="txt">1:1문의&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;⌵</label></li>
+            <li onclick="toggleSubMenu('inquirySubmenu')"><label class="txt">1:1문의</label></li>
             <ul class="submenu" id="inquirySubmenu">
                 <li onclick="location.href='/asks/my'"><label class="txtSub">문의내역</label></li>
                 <li onclick="location.href='/asks/new'"><label class="txtSub">문의작성</label></li>
             </ul>
-            <li onclick="toggleSubMenu('zzji')"><label class="txt">쪽지함&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;⌵</label></li>
+            <li onclick="toggleSubMenu('zzji')"><label class="txt">쪽지함</label></li>
             <ul class="submenu" id="zzji">
                 <li onclick="location.href='/notes/received'"><label class="txtSub">받은쪽지</label></li>
                 <li onclick="location.href='/notes/sent'"><label class="txtSub">보낸쪽지</label></li>
