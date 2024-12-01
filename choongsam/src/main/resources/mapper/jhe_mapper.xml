@@ -132,7 +132,8 @@
 					ui."USER_NAME" AS stud_name, h."ASMT_NM", h."SBMSN_END_YMD",
 					CASE WHEN hs."SBMSN_YN" = 'Y' THEN '제출'
 						 ELSE '미제출'
-					END	 AS	  SBMSN_YN
+					END	 AS	  SBMSN_YN,
+					hs."FILE_GROUP"
 		FROM		"LECTURE" AS l
 		JOIN		"COURSE_REGISTRATION" AS c ON l."LCTR_ID" = c."LCTR_ID"
 		JOIN		"USER_INFO" AS ui ON c."USER_SEQ" = ui."USER_SEQ"

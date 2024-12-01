@@ -20,16 +20,15 @@
     /* Navigation Styling */
     nav {
           position: fixed;
-		  width: auto;
-		  top:0;
-		  height: 100vh;
-		  z-index: 1;
-		  background-color: #304742;
-		  overflow:hidden;
-		  transition:width .3s ease;
+    	  width: 230px;
+          margin-top: 140px;
+    	  margin-left: 50px;
+		  overflow: hidden;
+		  transition: width .3s ease;
 		  cursor:pointer;
 		  @media screen and (min-width: 600px) {
-		    width: 320px;
+		    width: 230px;
+		    margin-left: 50px;
 		  }
     }
 
@@ -39,18 +38,19 @@
     }
 
     nav li {
-        width: 320px;
-	    height: 90px;
-	    font-size: 30px;
-	    color: white;
+        width: auto;
+	    height: 30px;
 	    display: flex;
+	    font-size: 20px;
+	    padding: 10px;
+	    margin: 10px 10px 10px 40px;
+	    border-radius: 8px;
 	    align-items: center;
-	    border-bottom: solid 2px white;
-	    transition: background-color 0.2s ease, transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     nav li:hover {
-        background-color: #00664F;
+        background-color: #FF711D;
+        border-radius: 8px;
 	    color: white;
 	    transform: scale(1.1);
 	    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
@@ -60,17 +60,15 @@
     .submenu {
         display: none;
         padding-left: 25px;
-        border-left: 2px solid #236147;
-        color: white;
+        color: black;
         margin-top: 5px;
     }
 
     .submenu li {
-        font-size: 20px;
+        font-size: 15px;
         padding: 10px 0;
         cursor: pointer;
         height: 30px;
-        background-color: #00664F;
     }
 
     /* Header Styling */
@@ -84,57 +82,73 @@
 
     /* Link Styling */
     a {
-        color: white;
         text-decoration: none;
     }
-    
-    .txt {
-    	margin-left: 50px;
+
+    .mypageH2 {
+    	margin-left: 35px;
+    	color: #00664F;
+    	font-weight: 900;
+    	font-size: 25px;
+    	padding: 10px;
+    	border-bottom: 3px solid #00664F;
     }
+    .txtSub {
+    	margin-left: 0;
+    	padding-left: 10px;
+    }
+
 </style>
 
 
 
 
 <script>
-    function toggleSubMenu(menuId) {
-        const submenu = document.getElementById(menuId);
-        submenu.style.display = (submenu.style.display === "block") ? "none" : "block";
-    }
+//기존 toggleSubMenu 함수 수정
+function toggleSubMenu(menuId) {
+    const allSubMenus = document.querySelectorAll('.submenu');
+    
+    // 현재 열려 있는 서브메뉴를 닫기
+    allSubMenus.forEach(function(submenu) {
+        if (submenu.id !== menuId) {
+            submenu.style.display = 'none';
+        }
+    });
+    
+    // 클릭한 서브메뉴 토글
+    const submenu = document.getElementById(menuId);
+    submenu.style.display = (submenu.style.display === "block") ? "none" : "block";
+}
 </script>
 </head>
 <body>
-
-<!-- <header>
-    <h1>마이페이지</h1>
-</header> -->
 
 <%-- sideNav.jsp --%>
 <c:choose>
 <c:when test="${usertype == 1001}">
     <nav>
         <ul>
-            <h1>&nbsp;</h1>
+            <h2 class="mypageH2">마이페이지</h2>
             <li onclick="toggleSubMenu('myClassroomSubmenu')"><label class="txt">내 강의실</label></li>
             <ul class="submenu" id="myClassroomSubmenu">
-                <li onclick="location.href='../view_Hjh/suganglistStd?user_seq=${user_seq}'"><label class="txt">수강신청내역</li>
-                <li onclick="location.href='../Jhe/myLecture'"><label class="txt">수강중인 강의 목록</label></li>
+                <li onclick="location.href='../view_Hjh/suganglistStd?user_seq=${user_seq}'"><label class="txtSub">수강신청내역</li>
+                <li onclick="location.href='../Jhe/myLecture'"><label class="txtSub">수강중인 강의 목록</label></li>
             </ul>
             <li onclick="toggleSubMenu('userInfoSubmenu')"><label class="txt">회원정보</label></li>
             <ul class="submenu" id="userInfoSubmenu">
-           		 <li onclick="location.href='../view_Hjh/updateProfile?user=${user}'"><label class="txt">개인정보 수정</li>
-           		 <li onclick="location.href='../view_Hjh/changePW?user=${user}'"><label class="txt">비밀번호 변경</li>
-           		 <li onclick="location.href='../view_Hjh/deleteStd?user=${user}'"><label class="txt">회원탈퇴</li>
+           		 <li onclick="location.href='../view_Hjh/updateProfile?user=${user}'"><label class="txtSub">개인정보 수정</li>
+           		 <li onclick="location.href='../view_Hjh/changePW?user=${user}'"><label class="txtSub">비밀번호 변경</li>
+           		 <li onclick="location.href='../view_Hjh/deleteStd?user=${user}'"><label class="txtSub">회원탈퇴</li>
             </ul>
             <li onclick="toggleSubMenu('inquirySubmenu')"><label class="txt">1:1문의</label></li>
             <ul class="submenu" id="inquirySubmenu">
-                <li onclick="location.href='/asks/my'"><label class="txt">문의내역</label></li>
-                <li onclick="location.href='/asks/new'"><label class="txt">문의작성</label></li>
+                <li onclick="location.href='/asks/my'"><label class="txtSub">문의내역</label></li>
+                <li onclick="location.href='/asks/new'"><label class="txtSub">문의작성</label></li>
             </ul>
             <li onclick="toggleSubMenu('zzji')"><label class="txt">쪽지함</label></li>
             <ul class="submenu" id="zzji">
-                <li onclick="location.href='/notes/received'"><label class="txt">받은쪽지</label></li>
-                <li onclick="location.href='/notes/sent'"><label class="txt">보낸쪽지</label></li>
+                <li onclick="location.href='/notes/received'"><label class="txtSub">받은쪽지</label></li>
+                <li onclick="location.href='/notes/sent'"><label class="txtSub">보낸쪽지</label></li>
             </ul>
         </ul>
     </nav>
@@ -145,28 +159,28 @@
 <c:when test="${usertype == 1002}">
     <nav>
         <ul>
-            <h1>&nbsp;</h1>
+            <h2 class="mypageH2">마이페이지</h2>
             <li onclick="toggleSubMenu('myClassroomSubmenu')"><label class="txt">나의 강의실</label></li>
             <ul class="submenu" id="myClassroomSubmenu">
-                <li onclick="location.href='/registerCourseForm'"><label class="txt">강의 등록</label></li>
-                <li onclick="location.href='../Jhe/myLecture'"><label class="txt">강의 관리</label></li>
-                <li onclick="location.href='../view_Hjh/gangyilistTeacher?user_seq=${user_seq}'"><label class="txt">강의 목록</label></li>
+                <li onclick="location.href='/registerCourseForm'"><label class="txtSub">강의 등록</label></li>
+                <li onclick="location.href='../Jhe/myLecture'"><label class="txtSub">강의 관리</label></li>
+                <li onclick="location.href='../view_Hjh/gangyilistTeacher?user_seq=${user_seq}'"><label class="txtSub">강의 목록</label></li>
             </ul>
             <li onclick="toggleSubMenu('userInfoSubmenu')"><label class="txt">회원정보</label></li>
             <ul class="submenu" id="userInfoSubmenu">
-                <li onclick="location.href='../view_Hjh/updateProfileteacher?user=${user}'"><label class="txt">개인정보 수정</label></li>
-                <li onclick="location.href='../view_Hjh/changePW?user=${user}'"><label class="txt">비밀번호 변경</li>
-                <li onclick="location.href='../view_Hjh/deleteTeacher?user=${user}'"><label class="txt">회원탈퇴</label></li>
+                <li onclick="location.href='../view_Hjh/updateProfileteacher?user=${user}'"><label class="txtSub">개인정보 수정</label></li>
+                <li onclick="location.href='../view_Hjh/changePW?user=${user}'"><label class="txtSub">비밀번호 변경</li>
+                <li onclick="location.href='../view_Hjh/deleteTeacher?user=${user}'"><label class="txtSub">회원탈퇴</label></li>
             </ul>
             <li onclick="toggleSubMenu('inquirySubmenu')"><label class="txt">1:1문의</label></li>
             <ul class="submenu" id="inquirySubmenu">
-                <li onclick="location.href='/asks/my'"><label class="txt">문의내역</label></li>
-                <li onclick="location.href='/asks/new'"><label class="txt">문의작성</label></li>
+                <li onclick="location.href='/asks/my'"><label class="txtSub">문의내역</label></li>
+                <li onclick="location.href='/asks/new'"><label class="txtSub">문의작성</label></li>
             </ul>
             <li onclick="toggleSubMenu('zzji')"><label class="txt">쪽지함</label></li>
             <ul class="submenu" id="zzji">
-                <li onclick="location.href='/notes/received'"><label class="txt">받은쪽지</label></li>
-                <li onclick="location.href='/notes/sent'"><label class="txt">보낸쪽지</label></li>
+                <li onclick="location.href='/notes/received'"><label class="txtSub">받은쪽지</label></li>
+                <li onclick="location.href='/notes/sent'"><label class="txtSub">보낸쪽지</label></li>
             </ul>
         </ul>
     </nav>
@@ -176,7 +190,7 @@
 <c:when test="${usertype == 1003}">
     <nav>
         <ul>
-            <h1>&nbsp;</h1>
+            <h2 class="mypageH2">마이페이지</h2>
             <li onclick="toggleSubMenu('myClassroomSubmenu')"><label class="txt">회원관리</label></li>
             <ul class="submenu" id="myClassroomSubmenu">
                  <li onclick="location.href='../view_Hjh/updateProfileAdmin'">회원정보수정</li>

@@ -24,7 +24,7 @@ body {
 }
 
 main {
-	margin-left: -150px;
+	margin-left: -180px;
 	padding: 150px 200px;
 	background-color: white;
 }
@@ -36,8 +36,8 @@ h2 {
 	font-weight: bold;
 }
 
-	table {
-	width: 100%;
+table {
+	width: 1300px;
 	border-collapse: collapse;
 	margin-top: 20px;
 }
@@ -57,11 +57,33 @@ th {
 #lctrName{
 	text-align: left;
 }
+
+/* .myLecDiv {
+	margin-bottom: 45px;
+}
+.home {
+	width: 30px;
+	height: 30px;
+	margin-left: 350px;
+}
+
+.Right {
+	width: 30px;
+} */
 </style>
 <title>내 강의 리스트</title>
 </head>
 <body>
 <main>
+<!-- 	<div class="myLecDiv">
+		<span><a href="../"><img alt="홈" src="../chFile/Homework/홈.png" class="home"></a>
+			<img alt="꺽새" src="../chFile/Homework/꺽새.png" class="Right">
+			마이페이지
+			<img alt="꺽새" src="../chFile/Homework/꺽새.png" class="Right">
+			내 강의실
+			<img alt="꺽새" src="../chFile/Homework/꺽새.png" class="Right">
+			수강중인 강의 목록</span>
+	</div> -->
 	<c:if test="${usertype == 1002}"><h2>강의 관리</h2></c:if>
 	<c:if test="${usertype == 1001}"><h2>수강중인 강의 목록</h2></c:if>
 	<table id="homeworkList">

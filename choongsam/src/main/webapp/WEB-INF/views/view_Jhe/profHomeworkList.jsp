@@ -28,6 +28,10 @@ td {
 table {
 	width: 1200px;
 }
+.filePng {
+	width: 40px;
+	height: 40px;
+}
 </style>
 <title>진행중인 강의 과제 리스트</title>
 </head>
@@ -97,12 +101,18 @@ table {
 			<th>과제명</th>
 			<th class="col_3">학생 이름</th>
 			<th class="col_3">제출 상태</th>
+			<th class="col_3">제출 파일</th>
 		</tr>
 		<c:forEach var="studList" items="${studList}">
 			<tr>
 				<td>${studList.asmt_nm}</td>
 				<td class="col_3">${studList.stud_name}</td>
 				<td class="col_3">${studList.sbmsn_yn}</td>
+				<td class="col_3">
+				<c:if test="${studList.file_group != 0}">
+					<a href="/api/files/${studList.file_group}/1">
+					<img alt="제출파일" src="../chFile/Homework/파일.png" class="filePng"></a>
+				</c:if></td>
 			</tr>
 		</c:forEach>
 	</table>

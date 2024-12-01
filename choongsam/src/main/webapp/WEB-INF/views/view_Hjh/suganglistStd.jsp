@@ -17,8 +17,8 @@
         }
 
         main {
-            margin-left: -150px; /* 내비게이션 바 너비 고려 */
-            padding: 200px;
+            margin-left: -180px; /* 내비게이션 바 너비 고려 */
+            padding: 150px 200px;
             background-color: white;
             
         }
@@ -32,7 +32,7 @@
 
         /* 테이블 스타일 */
         table {
-            width: 100%;
+            width: 1300px;
             border-collapse: collapse;
             margin-top: 20px;
         }
@@ -42,15 +42,14 @@
             text-align: left;
             border-bottom: 1px solid #ddd;
         }
+        td {
+            height: 35px;
+        }
 
         th {
             background-color: #00664F;
             color: white;
             font-size: 16px;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
         }
 
         tr:hover {

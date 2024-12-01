@@ -95,6 +95,7 @@ public class JheController {
 		List<Homework> profHomeworkList = hes.getProfHomeworkList(lctr_id);
 		System.out.println("profHomeworkList: " + profHomeworkList);
 		List<Homework> studSubmitList = hes.getStudSubmitList(lctr_id);
+		System.out.println("studSubmitList: " + studSubmitList);
 
 		int onOff = profHomeworkList.stream()
 				.map(Homework::getOnoff)
