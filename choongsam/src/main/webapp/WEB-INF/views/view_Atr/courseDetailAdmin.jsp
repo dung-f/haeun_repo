@@ -146,6 +146,8 @@ td:last-child {
 							<c:if test="${lecture.lctr_state eq '강의중'}">selected="selected"</c:if>>강의중</option>
 						<option value="4006"
 							<c:if test="${lecture.lctr_state eq '폐강'}">selected="selected"</c:if>>폐강</option>
+						<option value="4007"
+							<c:if test="${lecture.lctr_state eq '종강'}">selected="selected"</c:if>>종강</option>
 					</select><input type="submit" value="수정" style="margin: 5px;">
 				</form>
 			</td>

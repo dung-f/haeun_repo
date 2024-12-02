@@ -109,11 +109,17 @@ th {
 					</c:if>
 					<td>
 						<c:if test="${usertype == 1002}">
-							<a href="/sh_lecture_teacher?lctr_id=${homeworkList.lctr_id}&user_seq=${user_seq}&onoff=${homeworkList.onoff}" id="myLecture">
+							<c:if test="${homeworkList.lctr_state == 4006}">
+								<a href="/Jhe/profGrade?lctr_id=${homeworkList.lctr_id}&user_seq=${user_seq}&onoff=${homeworkList.onoff}" id="myLecture">
+								<img alt="성적보기" src="../chFile/Homework/입장.png" id="door"></a>
+							</c:if>
+							<c:if test="${homeworkList.lctr_state == 4003 || homeworkList.lctr_state == 4004 || homeworkList.lctr_state == 4005}">
+								<a href="/sh_lecture_teacher?lctr_id=${homeworkList.lctr_id}&user_seq=${user_seq}&onoff=${homeworkList.onoff}" id="myLecture">
 								<img alt="강의실입장" src="../chFile/Homework/입장.png" id="door"></a>
+							</c:if>
 						</c:if>
 						<c:if test="${usertype == 1001}">
-							<a href="/sh_lecture_student?lctr_id=${homeworkList.lctr_id}&user_seq=${user_seq}&onoff=${homeworkList.onoff}" id="myLecture">
+								<a href="/sh_lecture_student?lctr_id=${homeworkList.lctr_id}&user_seq=${user_seq}&onoff=${homeworkList.onoff}" id="myLecture">
 								<img alt="강의실입장" src="../chFile/Homework/입장.png" id="door"></a>
 						</c:if>
 					</td>

@@ -18,8 +18,8 @@
         }
 
         main {
-            margin-left: -150px; /* 내비게이션 바 너비 고려 */
-            padding: 200px;
+            margin-left: -180px; /* 내비게이션 바 너비 고려 */
+            padding: 150px 200px;
             background-color: white;
         }
 
@@ -39,7 +39,7 @@
 
         th, td {
             padding: 12px;
-            text-align: left;
+            text-align: center;
             border-bottom: 1px solid #ddd;
         }
 
@@ -47,10 +47,6 @@
             background-color: #00664F;
             color: white;
             font-size: 16px;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
         }
 
         tr:hover {
@@ -84,6 +80,12 @@
         .pagination a:hover {
             background-color: #45a049;
         }
+        .door {
+			width: 30px;
+		}
+		.lctrName {
+			text-align: left;
+		}
     </style>
 </head>
 <body>
@@ -103,13 +105,14 @@
             <th>수강료</th>
             <th>개강일</th>
             <th>상태</th>
+            <th>강의실</th>
         </tr>
     </thead>
     <tbody>
         <c:forEach var="lecture" items="${lectureList}" varStatus="status">
             <tr>
                 <td>${status.index + 1}</td>
-                <td>${lecture.lctr_name}</td>
+                <td class="lctrName">${lecture.lctr_name}</td>
                 <td>
                     <c:choose>
                         <c:when test="${lecture.lctr_category == '3001'}">취미</c:when>
@@ -129,15 +132,32 @@
                 <td>${lecture.lctr_start_date}</td>
                 <td>
                     <c:choose>
-                        <c:when test="${lecture.lctr_state == '4001'}">허가 대기중</c:when>
+                        <c:when test="${lecture.lctr_state == '4001'}">개설 허가 대기중</c:when>
                         <c:when test="${lecture.lctr_state == '4002'}">모집전</c:when>
                         <c:when test="${lecture.lctr_state == '4003'}">모집중</c:when>
                         <c:when test="${lecture.lctr_state == '4004'}">강의전</c:when>
                         <c:when test="${lecture.lctr_state == '4005'}">강의중</c:when>
                         <c:when test="${lecture.lctr_state == '4006'}">폐강</c:when>
+                        <c:when test="${lecture.lctr_state == '4007'}">종강</c:when>
                         <c:otherwise>기타</c:otherwise>
                     </c:choose>
                 </td>
+                <td>
+					<c:if test="${usertype == 1002}">
+						<c:if test="${lecture.lctr_state == 4003 || lecture.lctr_state == 4004 || lecture.lctr_state == 4005 || lecture.lctr_state == 4006}">
+							<a href="/sh_lecture_teacher?lctr_id=${lecture.lctr_id}&user_seq=${user_seq}&onoff=${lecture.onoff}">
+							<img alt="교수강의실입장" src="../chFile/Homework/입장.png" class="door"></a>
+						</c:if>
+						<c:if test="${lecture.lctr_state == 4007}">
+							<a href="/Jhe/profGrade?lctr_id=${lecture.lctr_id}&user_seq=${user_seq}&onoff=${lecture.onoff}">
+							<button>학생 성적 조회</button></a>
+						</c:if>
+					</c:if>
+					<c:if test="${usertype == 1001}">
+						<a href="/sh_lecture_student?lctr_id=${lecture.lctr_id}&user_seq=${user_seq}&onoff=${lecture.onoff}">
+						<img alt="학생강의실입장" src="../chFile/Homework/입장.png" class="door"></a>
+					</c:if>
+				</td>
             </tr>
         </c:forEach>
     </tbody>

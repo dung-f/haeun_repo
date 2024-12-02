@@ -470,7 +470,7 @@ public class JheServiceImpl implements JheService {
 
 			List<Integer> userSeqList = hed.studUserSeq(lctr_id);
 			for (Integer userSeq : userSeqList) {
-				if (lctrState == 4006) {
+				if (lctrState == 4007) {
 					Grade grade = new Grade();
 					grade.setLctr_id(lctr_id);
 					grade.setUser_seq(userSeq);

@@ -180,6 +180,26 @@
                 }
             }).open();
         }
+
+        // Function to trigger the file input dialog when the camera image is clicked
+        function triggerFileInput() {
+            document.getElementById('profileImage').click();
+        }
+
+        // Function to preview the image (for when the user selects an image)
+        function previewImage(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                const image = document.getElementById('profilePreview');
+                image.src = e.target.result; // Set the preview image source to the selected file
+            }
+            
+            if (file) {
+                reader.readAsDataURL(file); // Read the image as a data URL
+            }
+        }
     </script>
 </head>
 
@@ -195,7 +215,8 @@
             <!-- 프로필 이미지 -->
             <div class="file-input-wrapper">
                 <img id="profilePreview" src="${profile_addr}" alt="${profile_name}" class="preview-image">
-                <input type="file" id="profileImage" name="profileImage" accept="image/*" onchange="previewImage(event)">
+                <input type="file" id="profileImage" name="profileImage" accept="image/*" onchange="previewImage(event)" style="display: none;">
+                <img alt="카메라" src="../chFile/Homework/카메라.png" class="camera" onclick="triggerFileInput()" style="width: 30px; height: 30px; margin-top: -30px; margin-left: 250px;">
             </div>
 
             <!-- 사용자 아이디와 이름 -->

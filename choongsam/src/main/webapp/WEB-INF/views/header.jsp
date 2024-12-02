@@ -114,7 +114,7 @@
 		        <a href="../Jhe/myLecture?user=${user}&user_seq=${user_seq}">마이페이지</a>
 		    </c:when>
 		    <c:when test="${usertype == 1002}">
-		        <a href="../Jhe/myLecture??user=${user}&user_seq=${user_seq}">마이페이지</a>
+		        <a href="/view_Hjh/gangyilistTeacher?user_seq=${user_seq}'">마이페이지</a>
 		    </c:when>
 		    <c:when test="${usertype == 1003}">
 		        <a href="/view_Hjh/updateProfileAdmin?user=${user}&user_seq=${user_seq}">관리자페이지</a>
