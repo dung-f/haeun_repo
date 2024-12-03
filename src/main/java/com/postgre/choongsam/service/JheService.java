@@ -40,7 +40,7 @@ public interface JheService {
 	List<Grade>		profGrade(String lctr_id, int user_seq);
 	Grade			getupdateGrade(Integer userSeq, String lctr_id);
 	void			updateGrade(Integer userSeq, String lctr_id, int atndcScr, int asmtScr, int lastScr);
-	List<Grade>		studGrade(int user_seq);
+	List<Grade>		studGrade(String lctr_id, int user_seq);
 	List<Grade>		studGradeDetail(String lctr_id, int user_seq);
 	Homework		checkHomework(int asmt_no, int user_seq);
 }

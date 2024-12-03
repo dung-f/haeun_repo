@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ include file="../headerGreen.jsp"%>
+<%@ include file="../myPageNav.jsp" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -16,6 +17,12 @@ body {
     padding: 0;
     text-align: center;
     line-height: 1.6;
+}
+
+main {
+	padding: 70px 70px 70px 0;
+    margin-left: -50px;
+	background-color: white;
 }
 
 /* Title Styling */
@@ -84,6 +91,14 @@ a.details-link:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+.users {
+	padding-left: 15px;
+}
+
+.lctrName{
+	text-align: left;
+}
+
 /* Pagination Styling */
 .pagination {
     margin-top: 30px;
@@ -125,15 +140,16 @@ a.details-link:hover {
 </style>
 </head>
 <body>
+<main>
     <h2>강의 개설 리스트</h2>
     <table>
         <thead>
             <tr>
                 <th>회원번호</th>
-                <th>온/오프라인 여부</th>
+                <th>대면 여부</th>
                 <th>강의구분명</th>
                 <th>강의명</th>
-                <th>모집인원수</th>
+                <th>모집인원</th>
                 <th>모집 시작일</th>
                 <th>수강료</th>
                 <th>강의상태명</th>
@@ -145,10 +161,10 @@ a.details-link:hover {
         <tbody>
             <c:forEach var="lecture" items="${lectureList}">
                 <tr>
-                    <td>${lecture.user_name}</td>
+                    <td class="users">${lecture.user_name} (${lecture.user_seq})</td>
                     <td>${lecture.onoff_tr}</td>
                     <td>${lecture.lctr_category}</td>
-                    <td>${lecture.lctr_name}</td>
+                    <td class="lctrName">${lecture.lctr_name}</td>
                     <td>${lecture.lctr_count}</td>
                     <td>${lecture.rcrt_date}</td>
                     <td>${lecture.lctr_cost}</td>
@@ -174,6 +190,6 @@ a.details-link:hover {
             <a href="?page=${paging.totalPage}">Last</a>
         </c:if>
     </div>
+    </main>
 </body>
-<footer><%@ include file="../footer.jsp"%></footer>
 </html>

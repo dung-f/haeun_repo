@@ -572,11 +572,11 @@ public class JheDaoImpl implements JheDao {
 	}
 
 	@Override
-	public List<Grade> studGrade(int user_seq) {
+	public List<Grade> studGrade(Grade grade) {
 		System.out.println("수강생 내 성적 다오");
 		List<Grade> myGradeList = null;
 		try {
-			myGradeList = session.selectList("studGrade", user_seq);
+			myGradeList = session.selectList("studGrade", grade);
 		} catch (Exception e) {
 			System.out.println("studGrade error: " + e.getMessage());
 		}

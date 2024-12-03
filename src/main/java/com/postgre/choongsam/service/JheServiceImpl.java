@@ -609,9 +609,12 @@ public class JheServiceImpl implements JheService {
 	}
 
 	@Override
-	public List<Grade> studGrade(int user_seq) {
+	public List<Grade> studGrade(String lctr_id, int user_seq) {
 		System.out.println("수강생 내 성적 조회 서비스");
-		List<Grade> myGradeDetailList = hed.studGrade(user_seq);
+		Grade grade = new Grade();
+		grade.setLctr_id(lctr_id);
+		grade.setUser_seq(user_seq);
+		List<Grade> myGradeDetailList = hed.studGrade(grade);
 		return myGradeDetailList;
 	}
 

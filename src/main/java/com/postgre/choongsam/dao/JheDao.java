@@ -52,7 +52,7 @@ public interface JheDao {
 	int				getTotalAsmts(String lctr_id);
 	int				getLctrState(String lctr_id);
 	Grade			getupdateGrade(Grade grade);
-	List<Grade>		studGrade(int user_seq);
+	List<Grade>		studGrade(Grade grade);
 	List<Grade>		studGradeDetail(Grade grade);
 	List<Integer>	getLctrNoList(String lctr_id);
 	Homework		checkHomework(Homework homework);

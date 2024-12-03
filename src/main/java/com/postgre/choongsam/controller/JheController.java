@@ -44,29 +44,35 @@ public class JheController {
 		int user_status = (int) session.getAttribute("usertype");
 		System.out.println("user_status: " + user_status);
 
-		if (user_status == 1002) {
-			List<Lecture> profLectureList = hes.getLectureHomeworkList(user_seq);
-			model.addAttribute("homeworkList", profLectureList);
-			System.out.println("profLectureList: " + profLectureList);
-			
-			int onOff = profLectureList.stream()
-	                .map(Lecture::getOnoff)
-	                .findFirst()
-	                .orElse(0);
-			
-			model.addAttribute("onoff",onOff);
-		} else if (user_status == 1001) {
-			List<Lecture> studLectureList = hes.studLecture(user_seq);
-			model.addAttribute("homeworkList", studLectureList);
-			System.out.println("studLectureList: " + studLectureList);
-			
-			int onOff = studLectureList.stream()
-	                .map(Lecture::getOnoff)
-	                .findFirst()
-	                .orElse(0);
-			
-			model.addAttribute("onoff",onOff);
-		}
+		/*
+		 * if (user_status == 1002) { List<Lecture> profLectureList =
+		 * hes.getLectureHomeworkList(user_seq); model.addAttribute("homeworkList",
+		 * profLectureList); System.out.println("profLectureList: " + profLectureList);
+		 * 
+		 * int onOff = profLectureList.stream() .map(Lecture::getOnoff) .findFirst()
+		 * .orElse(0);
+		 * 
+		 * model.addAttribute("onoff",onOff); } else if (user_status == 1001) {
+		 * List<Lecture> studLectureList = hes.studLecture(user_seq);
+		 * model.addAttribute("homeworkList", studLectureList);
+		 * System.out.println("studLectureList: " + studLectureList);
+		 * 
+		 * int onOff = studLectureList.stream() .map(Lecture::getOnoff) .findFirst()
+		 * .orElse(0);
+		 * 
+		 * model.addAttribute("onoff",onOff); }
+		 */
+
+		List<Lecture> studLectureList = hes.studLecture(user_seq);
+		model.addAttribute("homeworkList", studLectureList);
+		System.out.println("studLectureList: " + studLectureList);
+		
+		int onOff = studLectureList.stream()
+				.map(Lecture::getOnoff)
+				.findFirst()
+				.orElse(0);
+		
+		model.addAttribute("onoff",onOff);
 		return "view_Jhe/myLecture";
 	}
 
@@ -385,7 +391,7 @@ public class JheController {
 	public String studGrade(@RequestParam(value = "lctr_id", defaultValue = "0") String lctr_id, HttpSession session, Model model) {
 		System.out.println("수강생 내 성적 조회 컨트롤러");
 		int user_seq = (int) session.getAttribute("user_seq");
-		List<Grade> myGradeList = hes.studGrade(user_seq);
+		List<Grade> myGradeList = hes.studGrade(lctr_id, user_seq);
 		int onOff = myGradeList.stream()
 				.map(Grade::getOnoff)
 				.findFirst()

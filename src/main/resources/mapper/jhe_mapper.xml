@@ -13,6 +13,14 @@
 		AND			l."LCTR_STATE" IN (4003, 4004, 4005, 4006, 4007)
 		ORDER BY	l."LCTR_NAME" ASC
 	</select>
+		<select id="getLectureHomeworkList2" resultType="Lecture">
+		SELECT		u."USER_NAME" AS user_name, u."USER_SEQ", l."LCTR_ID", l."LCTR_NAME",  l."ONOFF", l."LCTR_STATE"
+		FROM		"USER_INFO" AS u
+		JOIN		"LECTURE" AS l ON u."USER_SEQ" = l."USER_SEQ"
+		WHERE		l."USER_SEQ" = #{user_seq}
+		AND			l."LCTR_STATE" IN (4005, 4007)
+		ORDER BY	l."LCTR_NAME" ASC
+	</select>
 	<select id="profLectureInfo" resultType="Lecture">
 		SELECT		l."LCTR_ID", l."LCTR_NAME", l."ONOFF", u."USER_SEQ", u."USER_NAME", l."LCTR_CNTSCHD"
 		FROM		"LECTURE" AS l
@@ -220,7 +228,7 @@
 		AND			"LCTR_NO" = #{lctr_no}
 	</select>
 	<select id="studLecture" resultType="Lecture">
-		SELECT		p."USER_NAME", l."USER_SEQ", l."LCTR_ID", l."LCTR_NAME", l."ONOFF", c."REG_STATE"
+		SELECT		p."USER_NAME", l."USER_SEQ", l."LCTR_ID", l."LCTR_NAME", l."ONOFF", l."LCTR_STATE", c."REG_STATE"
 		FROM		"USER_INFO" AS u
 		JOIN		"COURSE_REGISTRATION" AS c ON u."USER_SEQ" = c."USER_SEQ"
 		JOIN		"LECTURE" AS l ON c."LCTR_ID" = l."LCTR_ID"
@@ -334,6 +342,7 @@
 		FROM		"GRADE" AS g
 		JOIN		"LECTURE" AS l ON g."LCTR_ID" = l."LCTR_ID"
 		WHERE		g."USER_SEQ" = #{user_seq}
+		AND			l."LCTR_ID" = #{lctr_id}
 		ORDER BY	l."LCTR_NAME"
 	</select>
 	<select id="studGradeDetail" resultType="Grade">

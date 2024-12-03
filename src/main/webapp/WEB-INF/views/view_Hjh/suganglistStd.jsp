@@ -39,7 +39,7 @@
 
         th, td {
             padding: 12px;
-            text-align: left;
+            text-align: center;
             border-bottom: 1px solid #ddd;
         }
         td {
@@ -167,6 +167,9 @@
             text-decoration: none;
         }
 
+		.lctrName {
+			text-align: left;
+		}
     </style>
 </head>
 <body>
@@ -182,11 +185,10 @@
             <th>번호</th>
             <th>대면/온라인</th>
             <th>강의명</th>
-            <th>학생이름</th>
+            <th>강사명</th>
             <th>신청일</th>
             <th>수강상태</th>
-            <th>결제일</th>
-            <th>결제상태 변경</th>
+            <th>결제</th>
         </tr>
     </thead>
     <tbody>
@@ -201,23 +203,22 @@
                      <c:otherwise>알 수 없음</c:otherwise>
                  </c:choose>
                 </td>
-                <td>${course.LCTR_NAME}</td>
-                <td>${course.std_name}</td>
+                <td class="lctrName">${course.LCTR_NAME}</td>
+                <td>${course.prof_name}</td>
                 <td>${course.aply_date}</td>
                 <td>
                     <c:choose>
-                        <c:when test="${course.reg_state == '2001'}">수강신청중</c:when>
-                        <c:when test="${course.reg_state == '2002'}">수강신청완료</c:when>
+                        <c:when test="${course.reg_state == '2001'}">수강 신청중</c:when>
+                        <c:when test="${course.reg_state == '2002'}">수강 신청완료</c:when>
                         <c:when test="${course.reg_state == '2003'}">수강중</c:when>
-                        <c:when test="${course.reg_state == '2004'}">수강완료</c:when>
+                        <c:when test="${course.reg_state == '2004'}">수강 완료</c:when>
                         <c:otherwise>알 수 없음</c:otherwise>
                     </c:choose>
                 </td>
-                <td>${course.pay_date}</td>
                 <td>
                     <c:choose>
                         <c:when test="${course.pay_state == 'Y'}">
-                            <span>수납완료</span>
+                            <span>${course.pay_date}</span>
                         </c:when>
                         <c:when test="${(course.pay_state == 'N' or course.pay_state == null) and course.reg_state == '2001'}">
                          <button class="openModalButton" data-lctr-id="${course.lctr_id}" data-user-seq="${course.user_seq}" data-user-cnt="${course.CLASS_COUNT}" >수납하기</button>

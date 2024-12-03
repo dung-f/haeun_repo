@@ -144,7 +144,7 @@
                 </td>
                 <td>
 					<c:if test="${usertype == 1002}">
-						<c:if test="${lecture.lctr_state == 4003 || lecture.lctr_state == 4004 || lecture.lctr_state == 4005 || lecture.lctr_state == 4006}">
+						<c:if test="${lecture.lctr_state == 4003 || lecture.lctr_state == 4004 || lecture.lctr_state == 4005}">
 							<a href="/sh_lecture_teacher?lctr_id=${lecture.lctr_id}&user_seq=${user_seq}&onoff=${lecture.onoff}">
 							<img alt="교수강의실입장" src="../chFile/Homework/입장.png" class="door"></a>
 						</c:if>

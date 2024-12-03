@@ -84,43 +84,30 @@ th {
 			<img alt="꺽새" src="../chFile/Homework/꺽새.png" class="Right">
 			수강중인 강의 목록</span>
 	</div> -->
-	<c:if test="${usertype == 1002}"><h2>강의 관리</h2></c:if>
-	<c:if test="${usertype == 1001}"><h2>수강중인 강의 목록</h2></c:if>
+	<h2>수강중인 강의 목록</h2>
 	<table id="homeworkList">
 		<tr>
 			<th id="lctrName">강의명</th>
-				<c:if test="${usertype == 1001}"><th>강사명</th></c:if>
-				<c:if test="${usertype == 1002}"><th>수강인원</th></c:if>
-				<c:if test="${usertype == 1002}"><th>강의상태</th></c:if>
+			<th>강사명</th>
+			<th>강의상태</th>
 			<th>강의실</th>
 		</tr>
 		<c:forEach var="homeworkList" items="${homeworkList}">
 				<tr>
 					<td id="lctrName"><strong>${homeworkList.lctr_name}</strong></td>
-					<td><c:if test="${usertype == 1001}">${homeworkList.user_name}</c:if>
-					<c:if test="${usertype == 1002}">${homeworkList.reg_count}</c:if></td>
-					<c:if test="${usertype == 1002}">
-						<td><c:choose>
-								<c:when test="${homeworkList.lctr_state == 4003}">모집중</c:when>
-								<c:when test="${homeworkList.lctr_state == 4004}">강의전</c:when>
-								<c:when test="${homeworkList.lctr_state == 4005}">강의중</c:when>
-								<c:when test="${homeworkList.lctr_state == 4006}">종강</c:when>
-							</c:choose></td>
-					</c:if>
+					<td>${homeworkList.user_name}
+					<td><c:choose>
+							<c:when test="${homeworkList.lctr_state == 4005}">강의중</c:when>
+							<c:when test="${homeworkList.lctr_state == 4007}">종강</c:when>
+						</c:choose></td>
 					<td>
-						<c:if test="${usertype == 1002}">
-							<c:if test="${homeworkList.lctr_state == 4006}">
-								<a href="/Jhe/profGrade?lctr_id=${homeworkList.lctr_id}&user_seq=${user_seq}&onoff=${homeworkList.onoff}" id="myLecture">
-								<img alt="성적보기" src="../chFile/Homework/입장.png" id="door"></a>
-							</c:if>
-							<c:if test="${homeworkList.lctr_state == 4003 || homeworkList.lctr_state == 4004 || homeworkList.lctr_state == 4005}">
-								<a href="/sh_lecture_teacher?lctr_id=${homeworkList.lctr_id}&user_seq=${user_seq}&onoff=${homeworkList.onoff}" id="myLecture">
-								<img alt="강의실입장" src="../chFile/Homework/입장.png" id="door"></a>
-							</c:if>
+						<c:if test="${homeworkList.lctr_state == 4007}">
+							<a href="/Jhe/studGrade?lctr_id=${homeworkList.lctr_id}&user_seq=${user_seq}&onoff=${homeworkList.onoff}" id="myLecture">
+							<button>성적 조회</button></a>
 						</c:if>
-						<c:if test="${usertype == 1001}">
-								<a href="/sh_lecture_student?lctr_id=${homeworkList.lctr_id}&user_seq=${user_seq}&onoff=${homeworkList.onoff}" id="myLecture">
-								<img alt="강의실입장" src="../chFile/Homework/입장.png" id="door"></a>
+						<c:if test="${homeworkList.lctr_state == 4005}">
+							<a href="/sh_lecture_student?lctr_id=${homeworkList.lctr_id}&user_seq=${user_seq}&onoff=${homeworkList.onoff}" id="myLecture">
+							<img alt="강의실입장" src="../chFile/Homework/입장.png" id="door"></a>
 						</c:if>
 					</td>
 				</tr>

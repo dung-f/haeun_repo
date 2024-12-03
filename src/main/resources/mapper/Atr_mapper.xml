@@ -18,7 +18,8 @@
 	<select id="trGetAllLectureList" resultType="Lecture">
 		SELECT
 			l."LCTR_ID",
-			user_info_name."USER_NAME" AS "user_name", 
+			user_info_name."USER_SEQ",
+			user_info_name."USER_NAME" AS "user_name",
 			comm_onoff."CD_NM" AS "onoff_tr",
 			comm_category."CD_NM" AS "lctr_category",
 			l."LCTR_NAME",
@@ -127,7 +128,7 @@
 	</update>
 	<insert id="trApplyCourse">
 		INSERT INTO "COURSE_REGISTRATION" ("LCTR_ID","USER_SEQ","APLY_DATE","REG_STATE","PAY_STATE")
-		 VALUES (#{lctr_id},#{student_id},TO_CHAR( NOW(), 'YYMMDD'),'2001','N')
+		 VALUES (#{lctr_id},#{student_id},TO_CHAR( NOW(), 'YYYY-MM-DD'),'2001','N')
 	</insert>
 	<update id="trChangeLectureState">
 	UPDATE "LECTURE" 

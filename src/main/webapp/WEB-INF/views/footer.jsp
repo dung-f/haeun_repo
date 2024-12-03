@@ -85,14 +85,14 @@
 			<div class="footer_text_body">
 				<div class="footer_text_hed_text2">중삼대</div>
 				<div class="footer_text_hed_text1">│</div>
-				<div class="footer_text_hed_text2">대표자:조하은</div>
+				<div class="footer_text_hed_text2">대표자: 조하은</div>
 				<div class="footer_text_hed_text1">│</div>
-				<div class="footer_text_hed_text2">개인정보보호책임자:손정민</div>
+				<div class="footer_text_hed_text2">개인정보보호책임자: 손정민</div>
 				<div class="footer_text_hed_text1">│</div>
 				<div class="footer_text_hed_text2">사업자등록번호:739-32-324230</div>
 			</div>
 			<div class="footer_text_footer">
-				<div class="footer_text_hed_text2">사업장소재지:서울특별시 마포구 신촌로 176, 3층 301호</div>
+				<div class="footer_text_hed_text2">사업장소재지: 서울특별시 마포구 신촌로 176, 3층 301호</div>
 			</div>
 			<div class="footer_text_end">
 				<div class="footer_text_hed_text3">Copyright © 중삼 All Rights Reserved</div>

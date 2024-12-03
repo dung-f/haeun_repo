@@ -197,7 +197,7 @@ function toggleSubMenu(menuId) {
              </ul>
             <li onclick="toggleSubMenu('gradeManagementSubmenu')"><label class="txt">강의</label></li>
             <ul class="submenu" id="gradeManagementSubmenu">
-           		  <li onclick="location.href='/courseApproveList'">강의 승인</li>
+           		  <li onclick="location.href='/courseApproveList'">강의 관리</li>
             </ul>
             
             

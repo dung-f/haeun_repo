@@ -108,13 +108,13 @@
 			<select id="sugangStu" resultType="Course_Registration">
 			    SELECT 
 			        cr.*, 
-			        ui."USER_NAME" AS std_name, 
+			        ui."USER_NAME" AS prof_name, 
 			        l."ONOFF" AS ONOFF, 
 			        l."LCTR_NAME" AS LCTR_NAME,
 			        l."LCTR_CNTSCHD" AS CLASS_COUNT 
 			    FROM "COURSE_REGISTRATION" cr
-			    LEFT JOIN "USER_INFO" ui ON cr."USER_SEQ" = ui."USER_SEQ"
 			    LEFT JOIN "LECTURE" l ON cr."LCTR_ID" = l."LCTR_ID"
+			    LEFT JOIN "USER_INFO" ui ON l."USER_SEQ" = ui."USER_SEQ"
 			    WHERE cr."USER_SEQ" = #{userSeq}
 			    ORDER BY cr."REG_STATE" ASC, cr."APLY_DATE" DESC
 			</select>
