@@ -49,9 +49,9 @@
     }
 
     nav li:hover {
-        background-color: #FF711D;
+        background-color: #EAEAEA;
         border-radius: 8px;
-	    color: white;
+	    color: black;
 	    transform: scale(1.1);
 	    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
     }
@@ -163,7 +163,7 @@ function toggleSubMenu(menuId) {
             <li onclick="toggleSubMenu('myClassroomSubmenu')"><label class="txt">나의 강의실</label></li>
             <ul class="submenu" id="myClassroomSubmenu">
                 <li onclick="location.href='/registerCourseForm'"><label class="txtSub">강의 등록</label></li>
-                <li onclick="location.href='../Jhe/myLecture'"><label class="txtSub">강의 관리</label></li>
+                <!-- <li onclick="location.href='../Jhe/myLecture'"><label class="txtSub">강의 관리</label></li> -->
                 <li onclick="location.href='../view_Hjh/gangyilistTeacher?user_seq=${user_seq}'"><label class="txtSub">강의 목록</label></li>
             </ul>
             <li onclick="toggleSubMenu('userInfoSubmenu')"><label class="txt">회원정보</label></li>
@@ -198,7 +198,6 @@ function toggleSubMenu(menuId) {
             <li onclick="toggleSubMenu('gradeManagementSubmenu')"><label class="txt">강의</label></li>
             <ul class="submenu" id="gradeManagementSubmenu">
            		  <li onclick="location.href='/courseApproveList'">강의 승인</li>
-          		  <li>강의 목록</li>
             </ul>
             
             
