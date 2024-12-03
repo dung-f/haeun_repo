@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace = "com.postgre.choongsam.dto.jheMapper">
-	<select id="getLectureHomeworkList" resultType="Lecture">
+<!-- 	<select id="getLectureHomeworkList" resultType="Lecture">
 		SELECT		u."USER_NAME" AS user_name, u."USER_SEQ", l."LCTR_ID", l."LCTR_NAME",  l."ONOFF", l."LCTR_STATE",
 					(SELECT COUNT(*)
 					 FROM	"COURSE_REGISTRATION" AS c
@@ -12,7 +12,7 @@
 		WHERE		l."USER_SEQ" = #{user_seq}
 		AND			l."LCTR_STATE" IN (4003, 4004, 4005, 4006, 4007)
 		ORDER BY	l."LCTR_NAME" ASC
-	</select>
+	</select> -->
 		<select id="getLectureHomeworkList2" resultType="Lecture">
 		SELECT		u."USER_NAME" AS user_name, u."USER_SEQ", l."LCTR_ID", l."LCTR_NAME",  l."ONOFF", l."LCTR_STATE"
 		FROM		"USER_INFO" AS u
