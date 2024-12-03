@@ -84,7 +84,12 @@ th {
 			<img alt="꺽새" src="../chFile/Homework/꺽새.png" class="Right">
 			수강중인 강의 목록</span>
 	</div> -->
+<<<<<<< HEAD:src/main/webapp/WEB-INF/views/view_Jhe/myLecture.jsp
 	<h2>수강중인 강의 목록</h2>
+=======
+	<c:if test="${usertype == 1002}"><h2>강의 관리</h2></c:if>
+	<c:if test="${usertype == 1001}"><h2>수강중인 강의 목록</h2></c:if>
+>>>>>>> eef7d90af74290df8c4cdea4a89aa79899676f54:choongsam/src/main/webapp/WEB-INF/views/view_Jhe/myLecture.jsp
 	<table id="homeworkList">
 		<tr>
 			<th id="lctrName">강의명</th>
@@ -101,6 +106,7 @@ th {
 							<c:when test="${homeworkList.lctr_state == 4007}">종강</c:when>
 						</c:choose></td>
 					<td>
+<<<<<<< HEAD:src/main/webapp/WEB-INF/views/view_Jhe/myLecture.jsp
 						<c:if test="${homeworkList.lctr_state == 4007}">
 							<a href="/Jhe/studGrade?lctr_id=${homeworkList.lctr_id}&user_seq=${user_seq}&onoff=${homeworkList.onoff}" id="myLecture">
 							<button>성적 조회</button></a>
@@ -108,6 +114,21 @@ th {
 						<c:if test="${homeworkList.lctr_state == 4005}">
 							<a href="/sh_lecture_student?lctr_id=${homeworkList.lctr_id}&user_seq=${user_seq}&onoff=${homeworkList.onoff}" id="myLecture">
 							<img alt="강의실입장" src="../chFile/Homework/입장.png" id="door"></a>
+=======
+						<c:if test="${usertype == 1002}">
+							<c:if test="${homeworkList.lctr_state == 4006}">
+								<a href="/Jhe/profGrade?lctr_id=${homeworkList.lctr_id}&user_seq=${user_seq}&onoff=${homeworkList.onoff}" id="myLecture">
+								<img alt="성적보기" src="../chFile/Homework/입장.png" id="door"></a>
+							</c:if>
+							<c:if test="${homeworkList.lctr_state == 4003 || homeworkList.lctr_state == 4004 || homeworkList.lctr_state == 4005}">
+								<a href="/sh_lecture_teacher?lctr_id=${homeworkList.lctr_id}&user_seq=${user_seq}&onoff=${homeworkList.onoff}" id="myLecture">
+								<img alt="강의실입장" src="../chFile/Homework/입장.png" id="door"></a>
+							</c:if>
+						</c:if>
+						<c:if test="${usertype == 1001}">
+								<a href="/sh_lecture_student?lctr_id=${homeworkList.lctr_id}&user_seq=${user_seq}&onoff=${homeworkList.onoff}" id="myLecture">
+								<img alt="강의실입장" src="../chFile/Homework/입장.png" id="door"></a>
+>>>>>>> eef7d90af74290df8c4cdea4a89aa79899676f54:choongsam/src/main/webapp/WEB-INF/views/view_Jhe/myLecture.jsp
 						</c:if>
 					</td>
 				</tr>

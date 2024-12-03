@@ -11,6 +11,7 @@
 		JOIN		"LECTURE" AS l ON u."USER_SEQ" = l."USER_SEQ"
 		WHERE		l."USER_SEQ" = #{user_seq}
 		AND			l."LCTR_STATE" IN (4003, 4004, 4005, 4006, 4007)
+<<<<<<< HEAD:src/main/resources/mapper/jhe_mapper.xml
 		ORDER BY	l."LCTR_NAME" ASC
 	</select>
 		<select id="getLectureHomeworkList2" resultType="Lecture">
@@ -19,6 +20,8 @@
 		JOIN		"LECTURE" AS l ON u."USER_SEQ" = l."USER_SEQ"
 		WHERE		l."USER_SEQ" = #{user_seq}
 		AND			l."LCTR_STATE" IN (4005, 4007)
+=======
+>>>>>>> eef7d90af74290df8c4cdea4a89aa79899676f54:choongsam/src/main/resources/mapper/jhe_mapper.xml
 		ORDER BY	l."LCTR_NAME" ASC
 	</select>
 	<select id="profLectureInfo" resultType="Lecture">

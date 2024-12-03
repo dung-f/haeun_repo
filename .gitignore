@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Java files
 *.class
 
@@ -31,3 +32,6 @@ Thumbs.db
 ### YAML Files ###
 # Ignore all .yml files
 *.yml
+=======
+/.metadata/
+>>>>>>> eef7d90af74290df8c4cdea4a89aa79899676f54
