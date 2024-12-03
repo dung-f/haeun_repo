@@ -1,1 +1,37 @@
+<<<<<<< HEAD
+# Java files
+*.class
+
+# Log files
+*.log
+
+# Maven
+target/
+!target/*.jar
+!target/*.war
+
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Spring Boot
+*.war
+*.jar
+*.properties
+
+# IDE Files
+.idea/
+*.iml
+*.hprof
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+### YAML Files ###
+# Ignore all .yml files
+*.yml
+=======
 /.metadata/
+>>>>>>> eef7d90af74290df8c4cdea4a89aa79899676f54
